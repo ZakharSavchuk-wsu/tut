@@ -1,14 +1,102 @@
+$arrowColor: #fff;
+
+
+@mixin arrows ($arrwidth, $arrheight, $color, $Zind) {
+    content: '';
+    position: absolute;
+    width: $arrwidth;
+    height: $arrheight;
+    background: $color;
+    z-index: $Zind;
+    border-radius: 6px 6px 0 0;
+    
+}
+
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
-    background-color: red;
- 
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background: #091921;
 }
 
-.block{
-    font-weight: bold;
-    font-size: 25px;
+.clock{
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(clock.png);
+  background-size: cover;
+  border: 4px solid #091921 ;
+  border-radius: 50%;
+  box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+              inset  0 -15px 15px rgba(255,255,255,0.05),
+              0 15px 15px rgba(0,0,0,0.3),
+              inset  0 15px 15px rgba(0,0,0,0.3);
+}
+.clock{
+    &:before{
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background: $arrowColor;
+        border-radius: 50%;
+        z-index: 10000;
+    }
+}
+
+.clock{
+    .hour{
+    position: absolute;
+    }
+    .min{
+    position: absolute;
+    }
+    .sec{
+    position: absolute;
+    }
+}
+
+.clock .hour, .hr{
+    width: 160px;
+    height: 160px;
+}
+
+.clock .min, .mn{
+    width: 190px;
+    height: 190px;
+}
+.clock .sec, .sc{
+    width: 230px;
+    height: 230px;
+}
+.hr, .mn, .sc{
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    position: absolute;
+  border-radius: 50%
+}
+.hr{
+    &:before{
+       @include arrows(8px,80px ,#ff105e ,10px);
+    }
+}
+.mn{
+    &:before{
+        @include arrows(4px,90px, $arrowColor, 11px);
+    }
+}
+.sc{
+    &:before{
+        @include arrows(2px,150px, $arrowColor, 12px);
+    }
 }
