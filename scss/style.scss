@@ -20,12 +20,17 @@ $arrowColor: #fff;
 
 
 body{
-    //  display: flex;
    min-height: 100vh;
-  justify-content: center;
-   align-items: center;
+//   justify-content: center;
+//    align-items: center;
    background: #091921;
-
+}
+canvas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -560px;
+    margin-left: 380px;
 }
 
  ul{
@@ -196,4 +201,11 @@ p{
     &:before{
         @include arrows(2px,150px, $arrowColor, 12px);
     }
+}
+
+.faceRec {
+display: flex;
+justify-content: center;
+align-items: center;
+      
 }
